@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    <!--使用java方式直接使用Hessian    开始-->
+    <!--
+    <servlet>
+        <servlet-name>myservice</servlet-name>
+        <servlet-class>com.caucho.hessian.server.HessianServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+        <init-param>
+            <param-name>service-class</param-name>
+            <param-value>com.ws.hessian.server.impl.MyServiceImpl</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myservice</servlet-name>
+        <url-pattern>/myservice</url-pattern>
+    </servlet-mapping>
+    -->
+    <!--使用java方式直接使用Hessian    结束-->
+
+    <!--使用spring+hessian-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>myservice</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myservice</servlet-name>
+        <url-pattern>/myservice/*</url-pattern>
+    </servlet-mapping>
+
+        
+</web-app>

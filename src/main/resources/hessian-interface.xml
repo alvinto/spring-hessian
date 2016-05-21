@@ -1,0 +1,11 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <bean id="myService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl">
+            <value>http://localhost:8080/myservice/hessian</value>
+        </property>
+        <property name="serviceInterface">
+            <value>com.ws.hessian.server.MyService</value>
+        </property>
+    </bean>
+</beans>
